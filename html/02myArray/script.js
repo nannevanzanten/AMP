@@ -34,43 +34,50 @@ const context = canvas.getContext('2d');
 const width = window.innerWidth;
 const height = window.innerHeight;
 
-
-canvas.width = width;
-canvas.height = height;
-
-let blueCs = 0;
 let mouse = new Vector2d(0,0);
+canvas.height = height;
+canvas.width = width;
+let circles = 0; 
 let points = [];
-for(let i = 0; i<10;i++){
-  let  point = new Point(new Vector2d(getRandom(width),getRandom(height)), 20, 255,0,0);
+
+for(let i = 0; i<10;++i)
+{
+  let point = new Point(new Vector2d(getRandom(width),getRandom(height)), 20, 0,255,0);
   points.push(point);
 }
-function animate(){
+
+function animate()
+{
   window.requestAnimationFrame(animate);
-  for(let i = 0; i<points.length;i++){
+  for(let i = 0; i<points.length;++i)
+  {
     points[i].draw(context);
   }
-  if(blueCs>=10){
+  if(circles>=10)
+  {
     window.location.reload();
   }
 }
 
-function getRandom(max) {
+function getRandom(max) 
+{
   return Math.floor((Math.random() * max) + 1);
-
 }
 
-window.addEventListener("click",(evt)=>{
+window.addEventListener("click",(evt)=>
+{
   mouse.dx = evt.clientX;
   mouse.dy = evt.clientY;
-  for(let i = 0; i<points.length;i++){
+  for(let i = 0; i<points.length;++i)
+  {
     let dif = new Vector2d(0,0);
     dif.differenceVector(mouse,points[i].position)
-    console.log(dif.magnitude);
-    if((dif.magnitude<points[i].size)&&(points[i].radius==255)){
-      points[i].radius = 0;
+    if((dif.magnitude<points[i].radius)&&(points[i].g==255))
+    {
+      points[i].r = 0;
+      points[i].g = 0;
       points[i].b = 255;
-      blueCs++;
+      circles++;
     }
 
   }

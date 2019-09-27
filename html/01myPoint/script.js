@@ -9,15 +9,18 @@ canvas.height = height;
 
 let points = [];
 
-function animate(){
+function animate()
+{
     context.clearRect(0,0,width,height)
     requestAnimationFrame(animate)
     let A = new Point(new Vector2d(getRandom(width),getRandom(height)),1);
     points.push(A);
-    for(let i = 0; i<points.length; i++){
+    for(let i = 0; i<points.length; i++)
+    {
         points[i].radius += 0.09;
         points[i].draw(context)
-        if(points[i].radius > 20){
+        if(points[i].radius > 20)
+        {
             points.splice(i,1)
         }
     }
@@ -25,6 +28,7 @@ function animate(){
 
 animate();
 
-function getRandom(max){
+function getRandom(max)
+{
     return Math.floor(Math.random()*max);
 }
