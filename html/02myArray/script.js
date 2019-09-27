@@ -34,9 +34,10 @@ const context = canvas.getContext('2d');
 const width = window.innerWidth;
 const height = window.innerHeight;
 
-let mouse = new Vector2d(0,0);
 canvas.height = height;
 canvas.width = width;
+
+let mouse = new Vector2d(0,0);
 let circles = 0; 
 let points = [];
 
