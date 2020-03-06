@@ -14,7 +14,8 @@ let difference = new Vector2d(0,0);
 
 point.draw(context);
 
-window.addEventListener('click',(evt)=>{
+window.addEventListener('click',(evt)=>
+{
     mouseVector.dx = evt.clientX;
     mouseVector.dy = evt.clientY;
     console.log(mouseVector);
@@ -22,7 +23,8 @@ window.addEventListener('click',(evt)=>{
     difference.differenceVector(point.position,mouseVector);
     console.log(difference);
     console.log(difference.magnitude);
-    if(difference.magnitude<=point.radius){
+    if(difference.magnitude<=point.radius)
+    {
         point.position.dx += 50;
         //point.position.dy += 50;
         point.draw(context);

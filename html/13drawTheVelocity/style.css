@@ -2,11 +2,11 @@ body
 {
     margin:0;
     padding: 0;
-    overflow: hidden;    
+    overflow: hidden;
 }
 
 
-
-canvas{
+canvas
+{
     background-color: aliceblue;
 }

@@ -7,13 +7,21 @@ const height = window.innerHeight;
 canvas.width = width;
 canvas.height = height;
 
-let f = new LinearFunction(-0.2,400);
+let A = new Point(new Vector2d(200,200),15,255,0,0,true)
+let B = new Point(new Vector2d(500,300),15,0,255,0,true)
 
-for (let x = 0; x < width; x+=20) 
+let l = new LinearFunction(1, 1);
+
+function animate()
 {
-  let point = new Point(new Vector2d(x,f.calcY(x)),10);
-  point.draw(context)
+  requestAnimationFrame(animate);
+  context.clearRect(0,0,width,height);
+  l.defineLineByTwoPoints(A, B);
+  l.draw(context);
+  A.draw(context);
+  B.draw(context);
 }
+animate();
 
 //console.log(f.calcY(10));
 
